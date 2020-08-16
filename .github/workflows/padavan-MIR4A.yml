@@ -7,8 +7,10 @@ on:
   # schedule:                           # 时间表
   #   - cron: '0 19 * * *'              # 每天国际时间19点，北京时间凌晨3点执行(北京+8)
   push:                               # push 操作
-    branches:                         # 分支
-      - master                        # 主分支
+    tags:
+    - 'v*'
+  #  branches:                         # 分支
+  #    - master                        # 主分支
   #   paths:                            # 路径
   #     - openwrt/*                     # 监听openwrt目录下所有文件的push操作
   #   paths:                            # 路径
