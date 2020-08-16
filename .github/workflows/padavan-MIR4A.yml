@@ -8,7 +8,7 @@ on:
     types: [published]
   push:
     tags:
-    - 'v*'
+      - 'v*'
  watch:                              # 监视操作
     types: [started]                  # 点击 star 之后
 env:
