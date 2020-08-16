@@ -2,12 +2,12 @@
 #  自动构建 PSG1218
 #     花妆男
 # # # # # # # # # # #
-name: Padavan CI MIR4A
+name: Padavan CI R4A
 on:
    watch:                              # 监视操作
      types: [started]                  # 点击 star 之后
 env:
-  T_NAMES: "MIR4A"        # 设备名字数组
+  T_NAMES: "R4A"        # 设备名字数组
   BASE_PATH: padavan                # 基础目录
   PUBLIC_PATH: public               # 公共目录
   VERSION_FILE: versions.inc        # 版本后缀
