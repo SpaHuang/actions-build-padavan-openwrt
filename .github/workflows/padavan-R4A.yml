@@ -14,6 +14,7 @@ env:
   PUBLIC_SH: public.sh              # 公共命令
   UPLOAD_FIRMWARE: true             # 是否打包文件
   CLONE_URL: https://github.com/chongshengB/rt-n56u.git # padavan  地址
+  CLONE_URLBAK: https://github.com/SpaHuang/rt-n56u.git
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
   WORK_PATHBAK: /opt/rt-n56u.bak  
@@ -41,7 +42,7 @@ jobs:
     - name: Clone Code                 # 3.拷贝代码
       run: |
         git clone --depth=1 $CLONE_URL -b $CLONE_BRANCH $WORK_PATH
-        git clone --depth=1 $CLONE_URL $WORK_PATHBAK
+        git clone --depth=1 $CLONE_URLBAK $WORK_PATHBAK
     - name: Build Tool Chain           # 4.构建工具链
       run: |
         cd $WORK_PATH/toolchain-mipsel
