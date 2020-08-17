@@ -16,6 +16,7 @@ env:
   CLONE_URL: https://github.com/chongshengB/rt-n56u.git # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
+  WORK_PATHBAK: /opt/rt-n56u.bak  
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -40,16 +41,16 @@ jobs:
     - name: Clone Code                 # 3.拷贝代码
       run: |
         git clone --depth=1 $CLONE_URL -b $CLONE_BRANCH $WORK_PATH
-        git clone --depth=1 $CLONE_URL /opt/rt-n56u.bak
+        git clone --depth=1 $CLONE_URL $WORK_PATHBAK
     - name: Build Tool Chain           # 4.构建工具链
       run: |
         cd $WORK_PATH/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p ${WORK_PATH}/images/
-        cp -r /opt/rt-n56u/trunk/configs/boards/WR1200JS /opt/rt-n56u/trunk/configs/boards/R4A
-        rm -rf /opt/rt-n56u/trunk/configs/boards/R4A/board.*
-        mv /opt/rt-n56u.bak/trunk/configs/boards/R4A/board.* /opt/rt-n56u/trunk/configs/boards/R4A
-        cp /opt/rt-n56u.bak/trunk/configs/templates/R4A.config /opt/rt-n56u/trunk/configs/templates
+        cp -r ${WORK_PATH}/trunk/configs/boards/WR1200JS ${WORK_PATH}/trunk/configs/boards/R4A
+        rm -rf ${WORK_PATH}/trunk/configs/boards/R4A/board.*
+        mv ${WORK_PATHBAK}/trunk/configs/boards/R4A/board.* ${WORK_PATH}/trunk/configs/boards/R4A
+        cp ${WORK_PATHBAK}/trunk/configs/templates/R4A.config ${WORK_PATH}/trunk/configs/templates
     - name: Clear And Build            # 5.清理构建树并开始构建
       run: |
         cwd=`pwd`
