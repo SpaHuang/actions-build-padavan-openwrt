@@ -4,7 +4,7 @@
 
 user_name="admin"                        # 用户名 admin
 user_password=$user_name                 # 用户密码 admin
-lan_ip="192.168.3"                       # lan 地址 192.168.3.1 一定别写后面的 .1
+lan_ip="192.168.129"                       # lan 地址 192.168.3.1 一定别写后面的 .1
 wifi_password="1234567890"               # wifi密码，切记密码最少8位 admin
 version_time=$(date "+%Y%m%d")           # 自动时间更新时版本号: 20200320
 default_path="./user/shared/defaults.h"  # 默认文件配置目录
@@ -81,14 +81,8 @@ echo "CONFIG_FIRMWARE_INCLUDE_WYY=y" >> .config
 echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config
 
 # 其他
-echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config    # MENTOHUST
-echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config   # SCUTCLIENT
 echo "CONFIG_FIRMWARE_INCLUDE_FRPC=n" >> .config         # 内网穿透FRPC
 echo "CONFIG_FIRMWARE_INCLUDE_FRPS=n" >> .config         # 内网穿透FRPS
-echo "CONFIG_FIRMWARE_INCLUDE_CADDY=n" >> .config        # 在线文件管理服务
-echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config    # MENTOHUST 锐捷认证
-echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config   # SCUT校园网客户端
-echo "CONFIG_FIRMWARE_INCLUDE_CADDYBIN=n" >> .config     # 集成caddu执行文件，此文件有13M,请注意固件大小。如果不集成，会从网上下载下来执行，不影响正常使用
 echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config     # zerotier ~1.3M
 
 # Default
